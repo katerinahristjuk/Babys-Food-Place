@@ -1,0 +1,450 @@
+/* za id: */
+.app{
+    padding: 0px 250px;
+    font-family: Helvetica, sans-serif;
+}
+body { background-color: rgb(233, 231, 231) }
+
+/* >>> HEADER <<< */
+.header {
+    display: grid;
+    border-top: 3px solid gray;
+    height: 70px;
+    padding: 15px 10px;
+    margin: 20px 0px;
+    grid-template-columns: 20% 50% 10% 5% 10%;
+    align-content: center;
+}
+    .headerLogo {
+        border: none;
+        width: 155px;
+        height: 53px;
+        background-image: url('./Logo/logo_color.svg');
+        background-size: cover;
+        margin: 5px 15px;
+    }
+    #homeBtn { color: rgba(255, 255, 255, 0) }
+    
+    .headerNav {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        list-style: none;
+        width: fit-content;
+        list-style-type: none;
+        margin: 10px 10px;
+        font-size: 1.1em;
+    }
+    .headerLink{
+        text-decoration: none;
+        font-weight: bold;
+        color: rgb(121, 121, 121);
+    }
+        .headerLink:hover{
+            color: rgb(209, 115, 0);
+        }
+    .loginBtn {
+        border:  1px solid gray;
+        border-radius: 10px;
+        height: 35px;
+        width: 75px;
+        align-self: center;
+        font-weight: bolder;
+    }
+        .loginBtn:hover {cursor: pointer}
+    .headerOr {
+        width: fit-content;
+        height: max-content;
+        padding-top: 25px;
+        color: rgb(235, 153, 2);
+        font-weight: bold;
+    }
+    .registerBtn {
+        border:  none;
+        box-shadow: 3px 2px gray;
+        height: 35px;
+        width: fit-content;
+        padding: 0px 20px;
+        align-self: center;
+        border-radius: 10px;
+        background-color: yellowgreen;
+        font-weight: bolder;
+    }
+        .registerBtn:hover { cursor: pointer;}
+
+/* >>> CONTAINER <<< */
+
+.flex-container {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow:wrap;
+    justify-content: space-between;
+    margin: 30px 0px;
+    padding: 0px 70px;
+    }
+    .flex-container>div{
+        margin: 10px 30px;
+    }
+
+    .h2{
+        color: rgb(74, 141, 6);
+        font-size: 1.8em;
+        width:100%;
+        border-bottom: 1px solid gray;;
+    }
+
+/* >>> RECIPE <<< */
+.recipe{
+    font-size: 10px;
+    width: 250px;
+    height: 300px;
+}
+    .recipe>div{
+        border: 1px solid rgb(255, 255, 255)
+    }
+
+    .recipeImg{
+        height: 50%;
+        background-image: url('../components/freshPizza.jpg');
+        background-size: cover;
+    }
+        .category{
+            border: solid 1px rgb(93, 93, 93);
+            margin: 15px 0px 0px 15px;
+            top: 100px;
+            right:50px;
+            font-size: 1.2em; 
+            width: fit-content;
+            height: fit-content;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: rgb(133, 185, 29);
+            color: white;
+        }
+        .categorySmall{
+            border: solid 1px rgb(93, 93, 93); 
+            width: fit-content;
+            height: fit-content;
+            padding: 3px;
+            border-radius: 10px;
+            background-color: rgb(74, 141, 6);
+            color: white;
+        }
+        
+    .recipePart{
+        height: 35%;
+        background-color: white;
+        padding: 0px 10px;
+        overflow: hidden;
+        border: red solid 1px; 
+    }
+        .recipePart>h4{
+            color: rgb(235, 153, 2);
+            font-weight: bold;
+            font-size: 1.5em;
+            margin: 5px;
+        }
+        .recipePart>p{
+           color: gray;
+           margin: 0px 3px;
+           text-align: justify;
+        }
+    .recipeButtons{
+        height: 12%;
+        display: flex;
+        align-content: flex-start;
+        color: rgb(93, 93, 93);
+        background-color: white;
+        padding: 10px 15px 0px 15px;
+    }
+        .recipeButtons>span{
+            margin: 0px 15px 0px 5px;
+            font-size: 1.3em;
+        }
+        .recipeButtons>li{
+            list-style-type: none;
+        }
+        .recipeButtons>button{
+            height: 25px;
+            width: 40px;
+            margin: -5px 0px 0px 15px;
+            font-size: 0.9em;
+            border-radius: 10px;
+            background-color: rgb(133, 185, 29);
+            color: white;
+        }
+        .recipeButtons>button:hover{
+            cursor: pointer;
+            border: 2px solid gray;
+        }
+
+/* >>> RECIPE EDIT <<< */
+.flexCol{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* border: 1px solid red; */
+}
+    .flexCol>div{
+        width: 31%;
+        /* border: 1px solid blue */
+    }
+    .flexCol>div>p{
+        color: rgb(235, 153, 2);
+        font-weight: bold;
+        margin: 10px 0px;
+    }
+    .flexCol>div>input{
+        width: 95%;
+        height: 25px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        background-color: rgb(245, 243, 243);
+    }
+.flexRow{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+    .flexRow>p{
+        color: rgb(235, 153, 2);
+        font-weight: bold;
+        margin: 10px 0px;
+    }
+    .flexRow>input{
+        width: 98%;
+        height: 25px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        background-color: rgb(245, 243, 243);
+    }
+    .flexRow>img{
+        height: 250px;
+        width: 90%;
+    }
+textarea{
+        width: 100%;
+        height: 150px;
+        padding: 5px 15px;
+        box-sizing: border-box;
+        border: 1px solid gray;
+        border-radius: 5px;
+        background-color: rgb(245, 243, 243);
+        resize: none;
+        text-align: left;
+    }
+    #textareaBig{
+        height: 300px;
+    }
+
+/* >>> RECIPE VIEW <<< */
+.recipeView{
+    width: 60%;
+    height:fit-content;
+    border: 2px solid gray;
+    border-radius: 30px;
+    position: absolute;
+    top:auto;
+    left: 19%;
+    z-index: 1000;
+    background-color: white;
+    padding: 20px;   
+}
+#popupCloseBtn{
+    background-color: rgb(235, 153, 2);
+    height: max-content;
+    width: max-content;
+    border: 1px solid gray;
+    border-radius: 13px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0px 20px 15px 15px;
+    padding: 2px 10px;
+}
+    #popupCloseBtn:hover{
+        cursor: pointer;
+        color: gray;
+    }
+#recipeView{
+    display: flex;
+    height: fit-content;
+    flex-direction: row;
+    justify-content: space-around;
+    /* border: 1px solid blue; */
+    color: gray;
+    text-align: justify;
+}
+    #recipeView>div{
+        margin: 15px;
+        height: fit-content;
+        /* border: 1px solid red; */
+        width: 45%;
+        overflow: auto;
+    }
+    #recipeView>div>img{
+        width: 70%;
+    }
+    #recipeView>div>h4{
+        color:rgb(235, 153, 2);
+    }
+
+/* >>> FORM <<< */
+.formBody{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+}
+    .formText>h2{
+        color: rgb(235, 153, 2);
+        font-weight: bold;
+    }
+    .formText>p{
+        text-align: justify;
+        color: gray;
+        padding: 0px 70px 0px 0px;
+    }
+    .form{
+        padding: 0px 20px;
+        color: gray;
+    }
+        .form>p{
+            color: rgb(235, 153, 2);
+            font-weight: bold;
+            font-size: 0.8em;
+            margin: 20px 0px 5px 0px;
+        }
+        .form>input{
+            width: 200px;
+            height: 20px;
+            border: 1.5px solid gray;
+            border-radius: 5px;
+            background-color: rgb(245, 243, 243);
+        }
+    .greenBtn {
+        border:  none;
+        color: white;
+        font-weight: bolder;
+        box-shadow: 3px 2px gray;
+        height: 35px;
+        width: fit-content;
+        padding: 0px 20px;
+        border-radius: 10px;
+        background-color: yellowgreen;
+    }
+        .greenBtn:hover {
+            cursor: pointer;
+            color: gray;
+        }
+        .orangeBtn{
+            background-color: rgb(235, 153, 2);
+            position: absolute;
+            right: 260px;
+            height: max-content;
+            width: max-content;
+            border: 1px solid gray;
+            border-radius: 30%;
+            padding: 6px;
+            margin: -10px 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+            .orangeBtn:hover{
+                cursor: pointer;
+            }
+        .orangeBtnLink{
+            text-decoration: none;
+            color: white;
+        }
+        .orangeBtnLink:hover{
+            cursor: pointer;
+            color: gray;
+        }
+    .formAvatar{
+        display: flex;
+        flex-direction: column;
+    }
+    .formAvatar>img {
+        vertical-align: middle;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        margin: 20px 20px;
+    }
+
+/* >>> TABLE <<< */
+
+table{
+    width: 100%;
+    margin: 50px 0px;
+    text-align: left;
+}
+
+th{
+    height: 40px;
+    background-color: rgb(233, 231, 231);
+    border: none;
+    color:rgb(235, 153, 2);
+    font-weight: bold; 
+    font-size: 1.1em;
+}
+
+tr{
+    height: 40px;
+    background-color: white;
+    border: none;
+    color:gray; 
+}
+
+.tableLink{
+    text-decoration: none;
+    color: gray;
+    margin: 20px;
+}
+    .tableLink:hover{
+        color:darkorange;
+    }
+
+
+/* >>> FOOTER <<< */
+.footer {
+    /* position: absolute;
+    bottom: 0; */
+    display: grid;
+    grid-template-columns: 20% 65% 15%;
+    height: 70px;
+    width: 100%;
+    background-color: grey;
+    margin-top: 50px;
+    color: white;
+    font-size: 0.8em;
+}
+    .footerLink{
+        padding-top: 15px ;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+        .footerLink:hover{
+            font-weight: bold;
+            }
+    #footerLogo {
+        border: none;
+        width: 155px;
+        height: 53px;
+        background-image: url('./Logo/logo_white.svg');
+        background-size: cover;
+        margin: 5px 75px;
+    }
+    .footerNav {
+        display: inline-flex;
+        flex-flow: row;
+        justify-content:space-evenly;
+        list-style: none;
+        margin: 0px 20px;
+    }
+    .footerC {
+        align-self: center;
+        font-size: 10px;
+    }
