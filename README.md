@@ -1,2 +1,2 @@
-# Baby-s-Food-Place
+# Babys-Food-Place
 Semos final project
