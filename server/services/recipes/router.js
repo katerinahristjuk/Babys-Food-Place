@@ -15,9 +15,6 @@ router.get('/popular', recipeController.mostPopular);
 router.get('/:id', recipeController.fetchOne);
 router.delete('/:id', recipeController.deleteRecipe);
 router.patch('/:id', recipeController.updateRecipe);
-// router.patch('/:id/:picture', recipeController.updateRecipe);
 router.patch('/:id/like', recipeController.likeRecipe);
-
-
 
 module.exports = router;

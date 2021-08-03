@@ -3,53 +3,10 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 
-const uploadImg = (req, res) => {
-    try {
-        const img = req.files.recipe; //req.files - files e atribut vo 
-                    //req.body -> form-data ->key (document) -> text/file
-      
-        //1.TYPE filter
-        const imgTypes = [ 'image/jpeg', 'image/gif', 'image/png'];
-        if(!imgTypes.includes(img.mimetype)) {
-            return res.status(400).send(`Don't accept such image format :(`)
-        };
-        //2.SIZE filter
-        const imgMaxSize = 20 * 1024 * 1024; //20MB
-        if(img.size > imgMaxSize){
-            return res.status(400).send(`This image is too large! Max: 20MB :(`)
-        }
-        //3. Folder for uploads:
-        const uploadFolder = path.join(__dirname, '..', '/uploads'); // !!!da se dodade `/uploads/${req.user.id}`
-        if(!fs.existsSync(uploadFolder)){
-            fs.mkdirSync(uploadFolder);
-        }
-                // ZA novite papki so id-user vo uploads:
-                // const uploadsDirectory = path.join(__dirname, '..', 'uploads');
-                // if (!fs.existsSync(uploadsDirectory)) {
-                // fs.mkdirSync(uploadsDirectory);
-                // }
-            
-                // const storageDirectory = path.join(__dirname, '..', 'uploads', req.user.id);
-                // if (!fs.existsSync(storageDirectory)) {
-                // fs.mkdirSync(storageDirectory);
-                // }
-        //4. Filename:
-        const imgName = `${img.name}_${new Date().getTime()/1000}`
-            // const imgName = `${img.name}_${random.string(5)}`
-        //5. Save img in uploadFolder:
-        img.mv(`${uploadFolder}/${imgName}`) //('/uploads/${img.name}_${new Date()}')
-        res.status(201).send({
-            message: `Successful upload of ${imgName} image! :)`, 
-            img
-        })   
-    } catch (error) {
-        res.status(500).send(error);
-    }
-}
 
 const getRecipes = async (req, res) => {
     try {
-        const recipes = await Recipe.find();
+        const recipes = await Recipe.find().sort({createdAt: -1});
         res.status(200).send(recipes);
     } catch (error) {
         res.status(500).send(`Internal server error: ${error}`)
@@ -159,7 +116,6 @@ const brunch = async (req, res) => {
 
 const lunch = async (req, res) => {
     try {
-        // console.log(req.params)
         let lunch = await Recipe.find({category: `lunch`}).exec();
         res.status(200).send({
             error: false,
@@ -186,7 +142,7 @@ const dinner = async (req, res) => {
 
 const freshNew = async (req, res) => {
     try {
-        let freshNew = await (await Recipe.find().sort({date: -1})).slice(-3);
+        let freshNew = await (await Recipe.find().sort({createdAt: -1})).slice(0, 3);
         res.status(200).send({
             error: false,
             message: `Fresh and New recipes are here`,
@@ -223,5 +179,4 @@ module.exports = {
     freshNew,
     mostPopular,
     likeRecipe,
-    uploadImg
 }

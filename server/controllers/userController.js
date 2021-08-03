@@ -10,7 +10,7 @@ const registerUser = async (req, res) => {
                 error: true,
                 message: 'Bad request. Passwords don`t match :('
             })
-        } //dali password-ot e vnesen i dali e ist so confirm_pass
+        }
        
         const user = await User.findOne({email: req.body.email});
         if (user) {
@@ -18,55 +18,57 @@ const registerUser = async (req, res) => {
                 error: true,
                 message: 'This email already exists! :('
             })
-        } //dali vo bazata veke postoi vakov email
+        } 
 
-        req.body.password = bcrypt.hashSync(req.body.password); // encrypts password
-        req.body.repeatPassword = bcrypt.hashSync(req.body.repeatPassword); // encrypts password
+        req.body.password = bcrypt.hashSync(req.body.password); 
+        req.body.repeatPassword = bcrypt.hashSync(req.body.repeatPassword);
 
         const newUser = await User.create(req.body);
         res.status(201).send({
             error: false,
             message: `User ${req.body.email} registered! :)`,
             newUser
-         }) // zapis na nov korisnik
+         }); 
     } catch (error) {
         res.status(500).send(`Internal server error: ${error}`);    
     }
 };
 
 const login = async (req, res) => {
+    const { email, password } = req.body
     try {
-        const user = await User.findOne({email: req.body.email});
+        const user = await User.findOne({email});
 
         if(!user) {
             return res.status(400).send({
                 error: true,
-                message: 'No user with such email :('
+                message: 'No user with such email :(',
+                user,
             })
-        } // dali ima vakov email vo bazata
+        } 
 
-        if(!bcrypt.compareSync(req.body.password, user.password)) {
+        if(!bcrypt.compareSync({password}, user.password)) {
             return res.status(401).send({
                 error: true,
                 message: 'Incorrect password :('
             })
-        } // proverka megju vneseniot password i password od database
+        } 
 
-        const payload = { //ona sto se prakja na JWT
+        const payload = { 
             id: user._id,
             email: user.email
         }
 
         const token = jwt.sign(payload, 'secret_key', {
             expiresIn: '180m'
-        }); // token, sto prima payload, i prakja secret key, sto vazi 30 minuti
+        });
 
         res.send({
             error: false,
             message: 'JWT successfully generated',
-            token: token
-        }) // se isprakja token koj se koristi za pristap do zabraneti ruti
-        
+            token: token,
+            user
+        })  
     } catch (error) {
         res.status(500).send(`Internal server error: ${error}`);    
     }

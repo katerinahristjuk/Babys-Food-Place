@@ -8,7 +8,7 @@ const recipeSchema = mongoose.Schema({
     shortDescription: String,
     recipe: String,
     creator: String,
-    picture: String, //convert a file into string using base64
+    picture: String,
     likeCount: {
         type: Number,
         default: 0

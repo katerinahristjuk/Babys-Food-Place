@@ -1,0 +1,17 @@
+{
+    "db": {
+        "host": "",
+        "port": "",
+        "username": ".....",
+        "password": ".....",
+        "dbname": ""
+    },
+    "ports": {
+        "proxy": 8000,
+        "recipes": 8001,
+        "users": 8002
+    },
+    "auth": {
+        "jwt_key": "....."
+    }
+}
