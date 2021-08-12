@@ -3,37 +3,18 @@ import '../assets/index.css';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { getAllRecipes, deleteRecipe } from '../actions/RecipeActions';
 import { Link } from 'react-router-dom';
-// import { createRecipe } from '../api/recipes';
-// import { RecipeCreateEdit } from './RecipeCreateEdit';
-
+import moment from 'moment';
 
 
 export function MyRecipes (props) {
 
     const dispatch = useDispatch();
     const recipes = useSelector(state => state.RecipesReducer.recipes);
-    // const [currentId, setCurrentId] = useState('');
-    // const [selectedRecipe, setSelectedRecipe] = useState({
-    //     _id: '', title: '', category: '', prepTime: '', shortDescription: '', recipe: '', creator:'', picture:'', likeCount:'', createdAt: ''
-    // })
-    // const delRecipes = useSelector(state => state.RecipesReducer.new);
-
-    useEffect(() => { //the way where actually dispatch an action = inside useEffect
+ 
+    useEffect(() => { 
         dispatch(getAllRecipes());
         dispatch(deleteRecipe());
-        // dispatch(getAllRecipes());
-        // console.log(recipes);
     },[dispatch]);
-
-    // function selectRecipe(recipe){
-    //     setSelectedRecipe(recipe)
-    //     console.log(`SelectedRecipe: ${selectedRecipe}`)
-    // }
-
-
-    // function closeRecipe(){
-    //     setSelectedRecipe({_id: '', title: '', category: '', prepTime: '', shortDescription: '', recipe: '', creator:'', picture:'', likeCount:'', createdAt: ''})
-    // }
 
 
     return(
@@ -60,7 +41,7 @@ export function MyRecipes (props) {
                              <td >{recipe.title}</td>   
                             </Link>
                             <td><span className='categorySmall'>{recipe.category}</span></td>
-                            <td>{recipe.createdAt}</td>
+                            <td>{moment(new Date(recipe.createdAt)).format("YYYY-MM-DD HH:mm")}</td>
                             <td><button className='greenBtn' onClick={()=>dispatch(deleteRecipe(recipe._id))}>delete</button></td>
                         </tr>
                     )

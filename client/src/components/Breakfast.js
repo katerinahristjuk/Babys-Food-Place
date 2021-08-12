@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Recipe } from './Recipe';
 import '../assets/index.css';
-import { useDispatch, useSelector } from 'react-redux'; //import hook from redux, that allows to dispatch an action;
+import { useDispatch, useSelector } from 'react-redux';
 import { breakfast } from '../actions/RecipeActions';
 import {RecipeView} from './RecipeView.js';
 
@@ -54,7 +54,6 @@ export function Breakfast () {
                 <div className='flex-container'>{recipes.map(recipe => {
                     return(
                         <div key={recipe._id}>
-                            {recipe.title}
                             <Recipe 
                             id={recipe._id}
                             title = {recipe.title}
@@ -73,17 +72,6 @@ export function Breakfast () {
                     )
                 })}</div>
             }
-            {/* <div>
-                {!recipes.length ? <h2>No recipes here yet...</h2> : 
-                <div>{recipes.map(recipe => {
-                    return(
-                        <div key={recipe._id}>
-                            {recipe.title}
-                        </div>
-                    )
-                })}</div>
-            }
-            </div> */}
         </div>
     )
 }

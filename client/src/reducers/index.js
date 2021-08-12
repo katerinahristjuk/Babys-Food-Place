@@ -1,6 +1,5 @@
 import {combineReducers} from 'redux';
-// import RecipeCardReducer from './RecipeCardReducer';
 import RecipesReducer from './RecipesReducer';
+import UsersReducer from './UsersReducer'
 
-export default combineReducers({ RecipesReducer });
-// export default combineReducers({ RecipeCardReducer, RecipesReducer });
+export default combineReducers({ RecipesReducer, UsersReducer });

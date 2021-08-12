@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import { FreshNew } from './FreshNew';
-// import { Popular } from './Popular';
 import { Recipe } from './Recipe';
-import { useDispatch, useSelector } from 'react-redux'; //import hook from redux, that allows to dispatch an action;
+import { useDispatch, useSelector } from 'react-redux'; 
 import { freshNew, popular } from '../actions/RecipeActions';
 import {RecipeView} from './RecipeView.js';
 
@@ -101,8 +99,6 @@ export function Home () {
                     )
                 })}</div>
             }
-            {/* < FreshNew /> */}
-            {/* < Popular /> */}
         </div>            
         </div>
     )

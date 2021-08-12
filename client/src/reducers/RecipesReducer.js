@@ -7,7 +7,6 @@ import {
 const initialState = {
     recipes: [],
     new: [],
-    // likes: {likes: 0}
 }
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = initialState, action) => {
@@ -29,21 +28,14 @@ export default (state = initialState, action) => {
         case LIKE_RECIPE:
             return {
                 ...state,
-                // recipes: action.payload
                 new: state.new.map((recipe) => recipe._id === action.payload._id ? action.payload : recipe),
                 recipes: state.recipes.map((recipe) => recipe._id === action.payload._id ? action.payload : recipe)
-                // recipes: state.map((recipe)=> recipe._id === action.payload._id?              
             }
 
         case DELETE_RECIPE:
-            // console.log(action.payload);
-            // console.log(state.recipes);
-            // console.log(state.recipes.filter((recipe) => recipe._id !== action.payload._id));
             return {
                 ...state,
                 recipes: state.recipes.filter((recipe) => recipe._id !== action.payload._id)
-                //od array so recipes napravi nov array kade id na sekoj element ne e action.apyload
-                //vo action.payload se prakja id na brisaniot element
             }
 
         case FRESH_NEW:
@@ -94,20 +86,7 @@ export default (state = initialState, action) => {
                 ...state,
                 recipes: action.payload
             }
-
-        // case FRESH_NEW:
-        //     return {
-        //         recipes: action.payload,
-        //         new: action.payload
-        //     }
-
-        // case POPULAR:
-        //     return {
-        //         recipes: action.payload,
-        //         popular: action.payload
-        //     }            
-
-
+        
         default: return state;
     }
 }

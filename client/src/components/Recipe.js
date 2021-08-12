@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
 import '../assets/index.css';
 import { likeRecipe } from '../actions/RecipeActions';
-import {useDispatch} from 'react-redux'; //1 za akciite, a 2 za da mozeme da gi vidime promenlivite
-// import { likeRecipe } from '../actions/RecipeCardActions';
+import {useDispatch} from 'react-redux'; 
 
-// export function Recipe ({ recipe }) {
+
 export function Recipe (props) {
 
-    // const stars = useSelector(state=>state.RecipeCardReducer.stars);
-    // const recipes = useSelector(state => state.RecipesReducer.recipes)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -57,7 +54,6 @@ export function Recipe (props) {
                     <path d="M32 0c1 0 2 1 2 3v16s-7 2-7-8c0-6 3-11 5-11z"/></g></svg>
                 </li>
                 <span>{props.noPeople}</span>
-                {/* <button onClick={()=>{dispatch(likeRecipe())}}>like</button> */}
                 <button onClick={()=>dispatch(likeRecipe(props.id))}>
                     <svg 
                     xmlns="http://www.w3.org/2000/svg" 
@@ -97,13 +93,3 @@ export function Recipe (props) {
     )
 }
 
-// Lunch.propTypes={
-//     title: PropTypes.string,
-//     category: PropTypes.string,
-//     shortDescription: PropTypes.string,
-//     prepTime: PropTypes.string,
-//     noPeople: PropTypes.string,
-//     selectedRecipe: PropTypes.string,
-//     openRecipe: PropTypes.func,
-//     closeRecipe: PropTypes.func
-// }

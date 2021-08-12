@@ -1,9 +1,7 @@
 import axios from 'axios';
 import {URL} from '../constants/RecipeConstants';
 
-// const URL = 'http://localhost:8001/recipes';
-
-export const getRecipes = () => axios.get(URL);
+export const getRecipes = () => axios.get(`${URL}/`);
 export const createRecipe = (newRecipe) => axios.post(`${URL}/new`, newRecipe);
 export const uploadImg = () => axios.post(`${URL}/new/img`);
 export const likeRecipe = (id) => axios.patch(`${URL}/${id}/like`);

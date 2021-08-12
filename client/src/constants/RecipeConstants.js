@@ -1,3 +1,4 @@
+export const URL = 'http://localhost:8000/bfp/api/v1/recipes';
 export const GET_ALL_RECIPES = 'GET_ALL_RECIPES';
 export const SHOW_ONE_RECIPE = 'SHOW_ONE_RECIPE';
 export const LIKE_RECIPE = 'LIKE_RECIPE';
@@ -11,4 +12,3 @@ export const LUNCH = 'LUNCH';
 export const DINNER = 'DINNER';
 export const FRESH_NEW = 'FRESH_NEW';
 export const POPULAR = 'POPULAR';
-export const URL = 'http://localhost:8001/recipes'

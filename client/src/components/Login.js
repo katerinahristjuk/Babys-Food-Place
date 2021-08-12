@@ -1,7 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../assets/index.css';
+import { Redirect } from 'react-router-dom';
+import { login } from '../actions/UserActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 export function Login () {
+    
+
+    const [user, setUser] = useState({
+        id: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        repeatPassword: '',
+        birthday: '',
+        avatar: '' 
+    });
+
+    const userLogged = useSelector(state => state.UsersReducer.users);
+
+    const [redirect, setRedirect] = useState(false);
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        dispatch(login(user));
+ 
+        setRedirect(true);
+    }
+
+    if(redirect) {
+        return <Redirect to={`/${userLogged._id}/myProfile`}/>
+    }
+
     return(
         <div id="login">
             <div className='h2'>Log In</div>
@@ -17,16 +51,26 @@ export function Login () {
                         Proin tristique erat bibendum felis sollicitudin finibus. 
                         Integer ut euismod risus, in semper nisl. Nam congue pharetra aliquet.</p>
                 </div>
-                {/* <div className='loginForm'> */}
                     <form className='form'>
                         <p>Email</p>
-                        <input type='email' className='input' placeholder='user@domain.com'></input>
+                        <input 
+                            type='email' 
+                            className='input' 
+                            placeholder='user@domain.com'
+                            value={user.email}
+                            onChange={(e) => setUser({...user, email: e.target.value})}
+                            ></input>
                         <p>Password</p>
-                        <input type='password' className='input' placeholder='**********'></input>
+                        <input 
+                            type='password' 
+                            className='input' 
+                            placeholder='**********'
+                            value={user.password}
+                            onChange={(e) => setUser({...user, password: e.target.value})}
+                            ></input>
                         <br/><br/>
-                        <button className='greenBtn'>LOG IN</button>
+                        <button className='greenBtn' onClick={handleSubmit}>LOG IN</button>
                     </form>
-                {/* </div> */}
             </div>
         </div>
     )

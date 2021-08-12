@@ -16,7 +16,7 @@ export function RecipeCreateEdit() {
         noPeople: '',
         shortDescription: '',
         recipe: '',
-        // creator: '',
+        creator: '',
         picture: '',
         likeCount: '',
         createdAt: new Date()
@@ -50,11 +50,9 @@ export function RecipeCreateEdit() {
         }
     }
 
-
     return (
         <div className="recipeEdit">
             <div className='h2'>My Recipes
-                {/* <button className='orangeBtn'><Link to='/:id/recipes' className='orangeBtnLink'>X</Link></button> */}
                 <button className='orangeBtn'><Link to='/recipes' className='orangeBtnLink'>X</Link></button>
             </div><br />
             <div className="flexCol">
@@ -66,12 +64,6 @@ export function RecipeCreateEdit() {
                         multiple={false}
                         onDone={({ base64 }) => setRecipe({ ...recipe, picture: base64 })} />
                     </div>
-                    {/* <form>
-
-                    </form> */}
-                    {/* <img src={recipe.picture} alt='recipeImg'></img><br/>
-                    <input type="file" className='greenBtn' accept="image/*" value={recipe.picture}/>
-                    <button className='greenBtn' onClick={()=>{dispatch(uploadImg(recipe))}}>UPLOAD IMAGE</button> */}
                     <br />
                 </div>
                 <div>
@@ -87,18 +79,14 @@ export function RecipeCreateEdit() {
                     <div className='flexCol'>
                         <div>
                             <p>Recipe</p>
-                            <input
-                                list='category'
-                                placeholder='Category'
-                                value={recipe.category}
-                                onChange={(e) => setRecipe({ ...recipe, category: e.target.value })}
-                            ></input>
-                            <datalist id='category'>
-                                <option value='breakfast' />
-                                <option value='brunch' />
-                                <option value='lunch' />
-                                <option value='dinner' />
-                            </datalist>
+                            <select 
+                                value={recipe.category} 
+                                onChange={(e) => setRecipe({ ...recipe, category: e.target.value })}>
+                                <option value='breakfast'>breakfast</option>
+                                <option value='brunch'>brunch</option>
+                                <option value='lunch'>lunch</option>
+                                <option value='dinner'>dinner</option>
+                            </select>
                         </div>
                         <div>
                             <p>Prep. Time</p>

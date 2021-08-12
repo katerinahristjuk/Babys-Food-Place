@@ -1,16 +1,7 @@
 import React from 'react';
 import '../assets/index.css';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { showOneRecipe } from '../actions/RecipeActions';
 
 export function RecipeView (props) {
-
-    // const dispatch = useDispatch();
-    // const popupRecipe = useSelector(state => state.RecipesReducer);
-
-    // useEffect(() => {
-    //     dispatch(showOneRecipe(props.currentId));
-    // },[dispatch]);
 
     return(
         <div className="recipeView">
@@ -23,13 +14,10 @@ export function RecipeView (props) {
             </div>
             <div id='recipeView'>
                 <div>
-                    {/* <h4>{props.title}</h4> */}
-                    {/* <h4>TITLE</h4> */}
                     <img src={props.picture} alt='recipeImg'></img><br/>
                     <h4>Best Served For: <span><b>{props.category}</b></span></h4>
                     <div><span>{props.shortDescription}</span></div><br/>
                     <div className='recipeButtons'>
-                        {/* <span>{`Prep.Time:`}<b>{`${props.prepTime}`}</b>{`min  `}</span> */}
                         <li><svg 
                             xmlns="http://www.w3.org/2000/svg" 
                             width="1.5em" 
@@ -73,37 +61,13 @@ export function RecipeView (props) {
                                     /></g></svg>
                         </li>
                         <span>{props.likeCount}</span>
-                        {/* <span>{props.prepTime}</span>                        
-                        <span>{`  No. People:`}<b>{`${props.noPeople}`}</b></span>
-                        <span>{`  Likes:`}<b>{`${props.likeCount}`}</b></span> */}
                     </div>
                 </div>
                 <div>
                     <h4>Recipe Details</h4>
                     <div><span>{props.recipe}</span></div>
                 </div>
-            </div>
-
-
-            {/* <table>
-                <tr>
-                    <th>PIZZA</th>
-                </tr>
-                <tr>
-                    <td>
-                        <tr><img src='https://p4.wallpaperbetter.com/wallpaper/698/474/361/dinner-food-pie-pizza-wallpaper-preview.jpg' alt='recipeImg'></img></tr>
-                        <tr>
-                            <td>Best Served For: </td>
-                       </tr>
-                        <tr>3</tr>
-                    </td>
-                    <td>
-                        <tr>Recipe Details</tr>
-                        <tr>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris elementum eu ante id cursus. Nulla volutpat vitae mauris eu sodales...</tr>
-                    </td>
-                </tr>
-            </table> */}
-            
+            </div>            
         </div>
     )
 }

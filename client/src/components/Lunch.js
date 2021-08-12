@@ -22,7 +22,6 @@ export function Lunch () {
         console.log(`SelectedRecipe: ${selectedRecipe}`)
     }
 
-
     function closeRecipe(){
         setSelectedRecipe({_id: '', title: '', category: '', prepTime: '', shortDescription: '', recipe: '', creator:'', picture:'', likeCount:'', createdAt: ''})
     }
@@ -48,7 +47,6 @@ export function Lunch () {
                 closeRecipe = {closeRecipe}/>
             } 
           
-
             {/* SHOW RECIPES */}
             {!recipes.length ? <h2>No recipes here yet...</h2> : 
                 <div className='flex-container'>{recipes.map(recipe => {

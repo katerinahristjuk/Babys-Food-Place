@@ -53,7 +53,6 @@ export function Dinner () {
                 <div className='flex-container'>{recipes.map(recipe => {
                     return(
                         <div key={recipe._id}>
-                            {recipe.title}
                             <Recipe 
                             id={recipe._id}
                             title = {recipe.title}
